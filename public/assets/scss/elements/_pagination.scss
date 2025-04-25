@@ -1,0 +1,29 @@
+.hl-pagination {
+  font-family: var(--heading-font);
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &--button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 57px;
+    height: 57px;
+    border-radius: 15px;
+    background: var(--bg-primary);
+    color: var(--paragraph-color);
+    @media #{$lg_mobile} {
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+    }
+    &:hover,
+    &.current {
+      background: var(--bg-gradient);
+      color: var(--primary-color);
+    }
+  }
+}

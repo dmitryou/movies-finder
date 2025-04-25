@@ -1,0 +1,81 @@
+.faq-accordion {
+  &--item {
+    background-color: #181818;
+    border: unset;
+    border-radius: 20px !important;
+    background: var(--bg-primary);
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  &--header {
+    font-size: 35px;
+    line-height: 1;
+    @media #{$lg_device} {
+      font-size: 24px;
+    }
+    @media #{$lg_mobile} {
+      font-size: 16px;
+    }
+  }
+  &--button {
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    text-transform: uppercase;
+    background: transparent;
+    border-radius: 20px !important;
+    padding: 30px;
+    @media #{$md-device} {
+      padding: 15px 20px;
+    }
+    .indicator {
+      position: relative;
+      margin-top: -7px;
+      &::before,
+      &::after {
+        position: absolute;
+        background-color: var(--paragraph-color);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &::before {
+        content: "";
+        width: 1.5px;
+        height: 15px;
+      }
+      &::after {
+        content: "";
+        width: 15px;
+        height: 1.5px;
+      }
+    }
+    span {
+      margin-top: 7px;
+    }
+    &:not(.collapsed),
+    &:focus {
+      box-shadow: none;
+      color: var(--primary-color);
+      background: transparent;
+    }
+    &:not(.collapsed) {
+      .indicator {
+        transform: rotate(90deg);
+      }
+    }
+    &::after {
+      content: unset;
+    }
+  }
+  &--body {
+    padding: 30px;
+    padding-top: 0;
+    
+    @media #{$lg_device} {
+      padding: 0 20px 20px;
+    }
+  }
+}

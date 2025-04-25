@@ -1,0 +1,68 @@
+.playlist {
+  &--item {
+    border-radius: 30px;
+    border: 1px solid rgba(240, 240, 240, 0.2);
+    background: var(--bg-primary);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media #{$sm_device}{
+      display: block;
+    }
+    h3 {
+      font-size: 50px;
+      font-weight: 300 !important;
+      @media #{$md-device}{
+        font-size: 30px;
+      }
+    }
+    .thumb {
+      border-radius: 15px;
+      overflow: hidden;
+      width: 200px;
+      @media #{$lg_mobile}{
+        width: 100%;
+      }
+      @media #{$md_device}{
+        margin-bottom: 20px;
+      }
+      img {
+        transition: transform 300ms ease-out;
+        @media #{$md_device}{
+          border-radius: 20px;
+        }
+        @media #{$lg_mobile}{
+          width: 100%;
+        }
+      }
+    }
+    .remove-btn {
+      font-family: var(--heading-font);
+      display: flex;
+      align-items: center;
+      padding: 17.5px 31px;
+      min-width: 170px;
+      justify-content: center;
+      @media #{$md-device}{
+        margin-top: 20px;
+      }
+      &::after {
+        border-radius: 15px;
+      }
+      @media #{$md-device}{
+        display: inline-block;
+        padding: 18px 25px 15px;
+        min-width: 150px;
+      }
+    }
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+    &:hover {
+      .thumb img {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

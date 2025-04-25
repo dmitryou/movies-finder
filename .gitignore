@@ -1,0 +1,58 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Next.js build output
+.next/
+out/
+
+# Firebase
+.firebase/
+.firebase-debug.log
+firestore-debug.log
+functions/lib/
+functions/node_modules/
+
+# Build & output
+dist/
+build/
+coverage/
+.cache/
+.nyc_output/
+
+# Env files
+.env
+.env.local
+.env.*.local
+.env.*.env
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# VS Code / IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-generated
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Misc
+.turbo/
+nx-cache/
+

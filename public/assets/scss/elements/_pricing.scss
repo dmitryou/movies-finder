@@ -1,0 +1,120 @@
+.pricing-card {
+  color: #fff;
+  font-family: var(--bigShoulder-font);
+  background-size: 100% 100%;
+  padding: 0 3px;
+  &--header {
+      border-radius: 30px;
+      background: linear-gradient(95deg, #121212 7.27%, #1f1f1f 99.21%);
+      padding: 30px 40px;
+      overflow: hidden;
+      @media #{$sm_mobile}{
+          padding: 30px 20px;
+      }
+
+      .title {
+          font-family: var(--bigShoulder-font);
+          font-weight: 700;
+          @media #{$md-device} {
+            font-size: 24px;
+          }
+      }
+
+      .price-badge {
+          width: max-content;
+          padding: 35px;
+          background: linear-gradient(108deg, #740000 13.18%, #ffd029 94.16%);
+          box-shadow: 5px 5px 10px 0px rgba(90, 17, 6, 0.6) inset,
+              -5px -5px 20px 0px rgba(112, 79, 0, 0.4) inset,
+              0 0 0 1.5px rgba(240, 240, 240, 0.35) inset;
+          border-radius: 47% 53% 50% 50%/50% 47% 53% 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          aspect-ratio: 1/0.92;
+          top: -15px;
+          right: -10px;
+          transform: rotate(-18deg);
+
+           .price {
+              font-size: 45px;
+              font-weight: 700;
+              color: inherit;
+              transform: rotate(18deg);
+                @media #{$md-device} {
+                  font-size: 35px;
+                }
+                @media #{$md_device}{
+                    padding-top: 11px;
+                }
+            }
+          .duration {
+              color: #e2e2e2;
+              font-family: var(--jost-font);
+              font-size: 14px;
+              transform: rotate(18deg);
+          }
+      }
+  }
+  @media #{$sm_device}{
+      max-width: 500px;
+      margin: 0 auto;
+  }
+
+  &--body {
+      padding: 20px 40px;
+      padding-bottom: 30px;
+      @media #{$sm_mobile}{
+          padding: 30px 20px;
+      }
+  }
+
+  &--list {
+      list-style-image: url('/assets/images/icons/list-marker-graident.svg');
+      list-style-position: inside;
+      margin-bottom: 30px;
+
+      .service-item {
+          color: #e2e2e2;
+          font-size: 18px;
+          font-weight: 700;
+          text-transform: uppercase;
+          padding: 9px 0;
+          @media #{$md-device} {
+            font-size: 16px;
+          }
+          &:first-child {
+              padding-top: 0;
+          }
+          &:last-child {
+              padding-bottom: 0;
+          }
+
+          &:not(:last-child) {
+              border-bottom: 1px dashed #262626;
+          }
+      }
+  }
+
+  &--button {
+      padding: 25px 0;
+
+      &::after {
+          border-radius: 100px;
+      }
+  }
+  
+  .pricing-card--button {
+      background-size: 100% 100%;
+      &:hover {
+          background-image: url('/assets/images/price-btn2.webp') !important;
+      }
+  }
+
+  .note {
+      color: var(--paragraph-color);
+      font-family: var(--jost-font);
+      font-size: 14px;
+      font-weight: 300;
+  }
+}

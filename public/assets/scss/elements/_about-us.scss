@@ -1,0 +1,5 @@
+.about-us {
+  .thumb {
+    @include maskImage(url('/assets/images/mask/circle3.svg'));
+  }
+}

@@ -1,0 +1,125 @@
+.coming-soon-area {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    .thumb {
+        margin-right: -70px;
+        @media #{$lg_device} {
+            margin-right: 0;
+        }
+    }
+}
+
+//coming-soon-inner
+.coming-soon-inner {
+    .sub-title {
+        font-size: 16px;
+        font-family: var(--body-font);
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-top: 20px; 
+        @media #{$sm_mobile}{
+            font-size: 14px;
+        }
+        @media #{$sm_mobile}{
+            margin-top: 10px;
+        }
+    }   
+    .title {
+        background: linear-gradient(92.28deg, #5A0DFF 0%, #FF29B8 38.6%, #FF581C 97.73%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 70px;
+        list-style: 1.2;
+        text-transform: uppercase;
+        margin-top: 38px;
+        margin-bottom: 38px;
+        @media #{$laptop_device_two}{
+            font-size: 55px;
+        }
+        @media #{$lg_device}{
+            font-size: 45px;
+        }
+        @media #{$lg_mobile}{
+            font-size: 35px;
+        }
+        @media #{$sm_mobile}{
+            font-size: 30px;
+            margin-top: 28px;
+            margin-bottom: 28px;
+        }
+    }
+    .subscribe-from {
+        position: relative;
+        border: 1px solid #404040;
+        display: inline-flex;
+        border-radius: 50px;
+        margin-bottom: 38px;
+        @media #{$lg_mobile}{
+            display:block;
+            border: 0;
+        }
+        input {
+            height: 60px;
+            padding: 0 20px;
+            width: 300px;
+            border-radius: 50px;
+            border: 0;
+            background: transparent;
+            color: var(--paragraph-color);
+            @media #{$lg_mobile}{
+                width: 100%;
+                border: 1px solid #404040;
+                margin-bottom: 10px;
+                height: 50px;
+            }
+        }
+        button {
+            height: 60px;
+            padding: 0 35px;
+            border-radius: 50px;
+            line-height: 51px;
+            @media #{$lg_mobile}{
+                width: 100%;
+                height: 50px;
+            }
+        }
+    }
+}
+
+.clock-wrap {
+    .countdown-item {
+        display: inline-block;
+        text-align: center;
+        .countdown-text {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-family: var(--body-font);
+            margin-bottom: 9px;
+            display: block;
+        }
+        .countdown-number {
+            height: 60px;
+            width: 60px;
+            line-height: 60px;
+            border-radius: 12px;
+            background-color: #303030;
+            font-size: 30px;
+            @media #{$sm_mobile}{
+                height: 50px;
+                width: 50px;
+                line-height: 50px;
+                font-size: 20px;
+            }
+        }
+        + .countdown-item {
+            margin-left: 11px;
+            @media #{$lg_mobile}{
+                margin-left: 3px;
+            }
+        }
+    }
+}
