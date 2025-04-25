@@ -2,13 +2,13 @@ import Link from "next/link";
 
 import { movieDetailData as data } from "@/data/movie";
 
-export default function MovieDetail() {
+export default function MovieDetail({movie}) {
   return (
     <div className="movie-details container py-80">
       <div className="row justify-content-between">
         <div className="col-xxl-5 col-xl-6 col-lg-7 mb-xl-0 mb-4">
-          <h3 className="section-title lh-1">{data.title}</h3>
-          <p className="description fw-medium">{data.description}</p>
+          <h3 className="section-title lh-1">{movie.title}</h3>
+          <p className="description fw-medium">{movie.description}</p>
         </div>
         <div className="col-xl-3 col-lg-5 align-self-center">
           {data.contributors && data.contributors.length > 0 && (

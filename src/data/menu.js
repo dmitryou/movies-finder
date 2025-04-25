@@ -7,17 +7,8 @@ const menuOneData = {
   menus: [
     {
       name: "Home",
-      href: "#",
-      subMenus: [
-        {
-          name: "Home One",
-          href: "/",
-        },
-        {
-          name: "Home Two",
-          href: "home-two",
-        },
-      ],
+      href: "/",
+
     },
     {
       name: "Movies",

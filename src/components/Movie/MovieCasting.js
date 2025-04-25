@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { movieDetailData as data } from "@/data/movie";
 
-export default function MovieCasting() {
+export default function MovieCasting({movie}) {
   return (
     <div className="movie-casting py-80">
       <div className="container">
