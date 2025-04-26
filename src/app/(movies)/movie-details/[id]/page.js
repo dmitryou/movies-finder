@@ -1,3 +1,4 @@
+'use client'
 import FooterOne from "@/components/Footer/FooterOne";
 import HeaderThree from "@/components/Header/HeaderThree";
 import MovieCasting from "@/components/Movie/MovieCasting";

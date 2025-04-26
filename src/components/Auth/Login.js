@@ -1,4 +1,21 @@
+"use client"
+import { useState } from 'react';
+import { handleLogin } from '../../firebase/auth';
+
 export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const user = await handleLogin(email, password);
+      console.log('User logged in:', user);
+    } catch (error) {
+      console.error('Login error:', error.message);
+    }
+  };
+
   return (
     <div class="registration-area my-80">
       <div class="container">
@@ -7,14 +24,14 @@ export default function Login() {
             <div class="registration-wrap holaa-form-wrapper">
               <h5 class="inner-small-title mb-0">Login</h5>
               <p class="mb-4 pb-2">Welcome! Log in to your account</p>
-              <form action="#">
+              <form onSubmit={onSubmit}>
                 <label class="single-input-field style-border">
                   <span>Name or Email</span>
-                  <input type="text" placeholder="Name OR Email" />
+                  <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required/>
                 </label>
                 <label class="single-input-field style-border">
                   <span>Password</span>
-                  <input type="text" placeholder="Password" />
+                  <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required/>
                   <svg
                     class="input-icon"
                     width="18"

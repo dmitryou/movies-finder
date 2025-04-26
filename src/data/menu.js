@@ -3,7 +3,9 @@ import logo from "@/../public/assets/images/logo.svg";
 const menuOneData = {
   logo: logo,
   href: "/",
-  btnText: "Subscribe Now",
+  btnText: "Login",
+  registerText: "Register",
+  logoutText: "Logout",
   menus: [
     {
       name: "Home",

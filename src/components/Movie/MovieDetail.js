@@ -8,7 +8,7 @@ export default function MovieDetail({movie}) {
       <div className="row justify-content-between">
         <div className="col-xxl-5 col-xl-6 col-lg-7 mb-xl-0 mb-4">
           <h3 className="section-title lh-1">{movie.title}</h3>
-          <p className="description fw-medium">{movie.description}</p>
+          <p className="description fw-medium">{movie.tagline}</p>
         </div>
         <div className="col-xl-3 col-lg-5 align-self-center">
           {data.contributors && data.contributors.length > 0 && (

@@ -136,6 +136,10 @@ export default function HeroOne({ data }) {
                                                     title={"Play Trailer"}
                                                     src="assets/video/video.mp4"
                                                 />
+                                                 <VideoTwo
+                                                    title={"Play Trailer"}
+                                                    src="assets/video/video.mp4"
+                                                />
                                             </div>
                                         </div>
                                     </div>

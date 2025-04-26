@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "movie-finder-a3220"
-  }
+    "movies": "movies-finder-ee860",
+    "default": "movies-finder-ee860"
+  },
+  "targets": {},
+  "etags": {}
 }
