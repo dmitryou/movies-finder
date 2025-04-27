@@ -202,29 +202,51 @@ export default function MenuOne() {
                     )}
                 </nav>
                 <div className="nav-right-part nav-right-part-desktop d-inline-flex align-item-center ps-md-5 ps-3">
-                    {user ? (
-                        <Link
-                            href="#"
-                            className="hl-btn btn-base text-uppercase d-xl-inline-block d-none"
+                    <div className="nav-right-part nav-right-part-desktop d-inline-flex align-item-center ps-md-5 ps-3">
+                        {user ? (
+                            <Link
+                                href="#"
+                                className="hl-btn btn-base text-uppercase d-xl-inline-block d-none"
+                            >
+                                <span onClick={onLogout}>
+                                    {data.logoutText}
+                                </span>
+                            </Link>
+                        ) : (
+                            <>
+                                <Link
+                                    href="login"
+                                    className="hl-btn btn-base text-uppercase d-xl-inline-block d-none"
+                                >
+                                    <span>{data.btnText}</span>
+                                </Link>
+                                <Link
+                                    href="register"
+                                    className="hl-btn btn-base text-uppercase d-xl-inline-block d-none"
+                                >
+                                    <span>{data.registerText}</span>
+                                </Link>
+                            </>
+                        )}
+                    </div>
+                    <button
+                        id="navigation-button"
+                        className="menu-button menu menu_btn d-lg-none border-0 bg-transparent"
+                        onClick={toggleMobileMenu}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="15"
+                            viewBox="0 0 16 15"
+                            fill="none"
                         >
-                            <span onClick={onLogout}>{data.logoutText}</span>
-                        </Link>
-                    ) : (
-                        <>
-                            <Link
-                                href="login"
-                                className="hl-btn btn-base text-uppercase d-xl-inline-block d-none"
-                            >
-                                <span>{data.btnText}</span>
-                            </Link>
-                            <Link
-                                href="register"
-                                className="hl-btn btn-base text-uppercase d-xl-inline-block d-none"
-                            >
-                                <span>{data.registerText}</span>
-                            </Link>
-                        </>
-                    )}
+                            <path
+                                d="M0 0H16V1.77778H0V0ZM0 6.22222H10.6667V8H0V6.22222ZM0 12.4444H16V14.2222H0V12.4444Z"
+                                fill="#fff"
+                            ></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>

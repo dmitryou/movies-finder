@@ -56,10 +56,8 @@ export default function Home() {
     return (
         <>
             <HeaderOne data={sliderData} isHero={true} />
-            <div className="p-4 text-white">
-                <SearchBar onResults={handleResults} />
-            </div>
             <main className="main">
+                <SearchBar onResults={handleResults} />
                 <MovieList movies={movies} />
                 <Pagination
                     currentPage={currentPage}

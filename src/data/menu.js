@@ -1,4 +1,4 @@
-import logo from "@/../public/assets/images/logo.svg";
+import logo from "@/../public/assets/images/logo.png";
 
 const menuOneData = {
   logo: logo,
@@ -13,104 +13,8 @@ const menuOneData = {
 
     },
     {
-      name: "Movies",
-      href: "#",
-      subMenus: [
-        {
-          name: "Movie List",
-          href: "movie-list",
-        },
-        {
-          name: "Movie Details",
-          href: "movie-details",
-        },
-        {
-          name: "Movie Download",
-          href: "movie-download",
-        },
-        {
-          name: "Playlist",
-          href: "playlist",
-        },
-        {
-          name: "Category",
-          href: "#",
-          subMenus: [
-            {
-              name: "Category",
-              href: "category",
-            },
-            {
-              name: "Category Grid",
-              href: "category-grid",
-            },
-            {
-              name: "Category List",
-              href: "category-list",
-            },
-          ],
-        },
-        {
-          name: "Pagination",
-          href: "#",
-          subMenus: [
-            {
-              name: "Pagination",
-              href: "pagination-one",
-            },
-            {
-              name: "Load More",
-              href: "pagination-two",
-            },
-          ],
-        },
-        {
-          name: "Creative Genres",
-          href: "creative-genres",
-        },
-        {
-          name: "Tags",
-          href: "tags",
-        },
-      ],
-    },
-    {
-      name: "Pages",
-      href: "#",
-      subMenus: [
-        {
-          name: "About Us",
-          href: "about",
-        },
-        {
-          name: "Artist",
-          href: "artist",
-        },
-        {
-          name: "Privacy Policy",
-          href: "privacy-policy",
-        },
-        {
-          name: "Pricing",
-          href: "pricing",
-        },
-        {
-          name: "404",
-          href: "not-found",
-        },
-        {
-          name: "Coming Soon",
-          href: "coming-soon",
-        },
-        {
-          name: "Login",
-          href: "login",
-        },
-        {
-          name: "Register",
-          href: "register",
-        },
-      ],
+      name: "PLAYLIST",
+      href: "playlist",
     },
     {
       name: "Blog",
@@ -173,8 +77,18 @@ const menuOneData = {
       ],
     },
     {
-      name: "FAQ",
-      href: "faq",
+      name: "Account",
+      href: "#",
+      subMenus: [
+        {
+          name: "Login",
+          href: "login",
+        },
+        {
+          name: "Register",
+          href: "register",
+        },
+      ],
     },
   ],
 };
