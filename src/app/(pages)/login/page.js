@@ -9,7 +9,6 @@ import HeaderOne from "@/components/Header/HeaderOne";
 export default function LoginPage() {
     const { user } = useAuth();
     const router = useRouter();
-
     useEffect(() => {
         if (user) router.push("/playlist"); // redirect to playlist if already logged in
     }, [user, router]);

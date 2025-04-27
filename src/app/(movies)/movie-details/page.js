@@ -1,14 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import FooterOne from "@/components/Footer/FooterOne";
 import HeaderThree from "@/components/Header/HeaderThree";
-import HeaderOne from "@/components/Header/HeaderOne";
 import MovieCasting from "@/components/Movie/MovieCasting";
 
 const TMDB_API_KEY = "9c5abf0e8c038652db89b7534ed902b4";
 
-export default function MovieDetails({ params }) {
-    const { id } = params;
+export default function MovieDetails() {
+    const searchParams = useSearchParams();
+    const id = searchParams.get('id');
     const [movie, setMovie] = useState({});
     const [casting, setCasting] = useState({});
 
@@ -44,8 +45,7 @@ export default function MovieDetails({ params }) {
 
     return (
         <>
-            <HeaderThree movie={movie}/>
-            {/* <HeaderOne data={sliderData} isHero={true} /> */}
+            <HeaderThree movie={movie} />
             <main className="main">
                 <MovieCasting movie={movie} casting={casting} />
             </main>

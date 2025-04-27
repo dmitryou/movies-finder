@@ -13,7 +13,7 @@ const BASE_URL = "https://image.tmdb.org/t/p/w780";
 
 export default function MovieCard({ movie }) {
   return (
-    <Link href={`/movie-details/${movie.id}`} className="block">
+    <Link href={`/movie-details?id=${movie.id}`} className="block">
       <div className="movie-card-small position-relative cursor-pointer transition-transform hover:scale-[1.02]">
         {/* Thumbnail */}
         <Image
