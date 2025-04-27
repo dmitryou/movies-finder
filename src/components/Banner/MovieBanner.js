@@ -9,7 +9,7 @@ import { useAuth } from "../../context/AuthContext";
 export default function MovieBanner({ movie }) {
     const { user } = useAuth();
     const router = useRouter();
-    console.log("movie:", movie);
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!user) {

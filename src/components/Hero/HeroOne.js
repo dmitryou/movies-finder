@@ -10,6 +10,12 @@ import {
 } from "swiper/modules";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { db } from "../../firebase/config";
+import { collection, addDoc } from "firebase/firestore";
+import { useAuth } from "../../context/AuthContext";
+
 const VideoTwo = dynamic(() => import("@/components/Video/VideoTwo"), {
     ssr: false,
 });
@@ -17,6 +23,9 @@ const VideoTwo = dynamic(() => import("@/components/Video/VideoTwo"), {
 const BASE_URL = "https://image.tmdb.org/t/p/w780";
 
 export default function HeroOne({ data }) {
+    const { user } = useAuth();
+    const router = useRouter();
+    console.log("data", data);
     const swiperHeroOptions = {
         speed: 1500,
         slidesPerView: "auto",
@@ -37,7 +46,10 @@ export default function HeroOne({ data }) {
         onAutoplayTimeLeft(s, time, progress) {
             const progressCircle = document.querySelector(".linear-circle");
             if (progressCircle) {
-              progressCircle.style.setProperty("--progress", `${1 - progress}`);
+                progressCircle.style.setProperty(
+                    "--progress",
+                    `${1 - progress}`
+                );
             }
         },
         modules: [Autoplay, Pagination, Navigation],
@@ -55,6 +67,32 @@ export default function HeroOne({ data }) {
         modules: [Pagination, Navigation, EffectCards, Scrollbar],
     };
 
+    const handleSubmit = async (slide) => {
+        console.log("slide", slide);
+
+        if (!user) {
+            alert("You must be logged in to add a movie.");
+            return;
+        }
+
+        try {
+            await addDoc(collection(db, "movies"), {
+                id: slide.id,
+                title: slide.title,
+                description: slide.overview,
+                image: slide.backdrop_path,
+                rating: slide.vote_average,
+                duration: 0,
+                createdBy: user.uid,
+                createdAt: new Date(),
+            });
+            // Navigate to the Playlist page
+            router.push("/playlist"); // Navigate to the Playlist page
+        } catch (error) {
+            console.error("Error adding movie:", error);
+        }
+    };
+
     return (
         <>
             {data.slides && data.slides.length > 0 && (
@@ -67,14 +105,6 @@ export default function HeroOne({ data }) {
                             key={index}
                             className="home-one-slider position-relative swiper-slide"
                         >
-                            {/* <video
-                className="video-autoplay"
-                src={slide.videoSrc}
-                preload="auto"
-                muted
-                autoPlay
-                loop
-              ></video> */}
                             <div className="thumb">
                                 <Image
                                     src={`${BASE_URL}${slide.backdrop_path}`}
@@ -133,11 +163,25 @@ export default function HeroOne({ data }) {
                                                 {slide.overview}
                                             </p>
                                             <div className="d-flex align-items-center justify-content-center justify-content-lg-start gap-xl-4 gap-2">
+                                                {user ? (
+                                                    <Link
+                                                        className="active hl-btn lh-1 gradient-btn fs-18 fw-bold flex-shrink-0 text-uppercase"
+                                                        data-bs-toggle="tab"
+                                                        href="#home"
+                                                    >
+                                                        <span
+                                                            onClick={() =>
+                                                                handleSubmit(
+                                                                    slide
+                                                                )
+                                                            }
+                                                            className="pt-1"
+                                                        >
+                                                            Add to Playlist
+                                                        </span>
+                                                    </Link>
+                                                ) : null}
                                                 <VideoTwo
-                                                    title={"Play Trailer"}
-                                                    src="assets/video/video.mp4"
-                                                />
-                                                 <VideoTwo
                                                     title={"Play Trailer"}
                                                     src="assets/video/video.mp4"
                                                 />
