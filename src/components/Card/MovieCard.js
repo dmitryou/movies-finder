@@ -22,6 +22,7 @@ export default function MovieCard({ movie }) {
           height={439}
           alt="card-img"
           className="w-100"
+          unoptimized
         />
 
         {/* Badge */}

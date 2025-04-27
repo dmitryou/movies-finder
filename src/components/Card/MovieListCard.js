@@ -33,6 +33,7 @@ export default function MovieListCard({ movie }) {
                         width={400}
                         height={200}
                         alt="playlist"
+                        unoptimized
                     />
                 </div>
                 <div className="content">

@@ -82,6 +82,7 @@ export default function HeroOne({ data }) {
                                     className="w-100"
                                     width={500}
                                     height={200}
+                                    unoptimized
                                 />
                             </div>
                             <div className="container position-absolute top-50 start-50 translate-middle mt-5">

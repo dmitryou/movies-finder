@@ -3,7 +3,8 @@ import Image from "next/image";
 const BASE_URL = "https://image.tmdb.org/t/p/w780";
 
 export default function MovieCasting({ casting }) {
-    const firstActors = casting.cast.slice(0, 15);
+
+    const firstActors = casting?.cast?.slice(0, 15) || [];
     return (
         <div className="movie-casting py-80">
             <div className="container">
@@ -20,6 +21,7 @@ export default function MovieCasting({ casting }) {
                                             height={200}
                                             alt="caster"
                                             className="person"
+                                            unoptimized
                                         />
                                     </div>
                                     <h4 className="cast--name text-uppercase gradient-link">
