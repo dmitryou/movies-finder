@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import FooterOne from "@/components/Footer/FooterOne";
 import HeaderThree from "@/components/Header/HeaderThree";
+import HeaderOne from "@/components/Header/HeaderOne";
 import MovieCasting from "@/components/Movie/MovieCasting";
 
 const TMDB_API_KEY = "9c5abf0e8c038652db89b7534ed902b4";
@@ -31,9 +32,20 @@ export default function MovieDetails({ params }) {
             console.error("Default TMDB fetch failed:", err);
         }
     };
+
+    //make data for one slide
+    const data = {
+        slides: [{ ...movie }],
+    };
+
+    const sliderData = {
+        slides: [movie],
+    };
+
     return (
         <>
-            <HeaderThree movie={movie} />
+            <HeaderThree movie={movie}/>
+            {/* <HeaderOne data={sliderData} isHero={true} /> */}
             <main className="main">
                 <MovieCasting movie={movie} casting={casting} />
             </main>

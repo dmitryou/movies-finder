@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { getAuth } from "firebase/auth";
@@ -40,17 +39,14 @@ export default function PlaylistOne() {
                 <Link
                     className="active hl-btn lh-1 gradient-btn fs-18 fw-bold flex-shrink-0 text-uppercase"
                     data-bs-toggle="tab"
-                    href="#home"
+                    href="#"
                 >
-                    <span className="pt-1">movies list</span>
+                    <span className="pt-1">Your favorite movie list</span>
                 </Link>
             </div>
 
             <div className="tab-content">
                 <div className="tab-pane container active" id="home">
-                    <p className="description fs-20 fw-medium lh-1">
-                        Displaying all favorite movie list
-                    </p>
                     {playlistMoviesData && playlistMoviesData.length > 0 && (
                         <div className="playlist mt-4">
                             {movies.map((movie, index) => (

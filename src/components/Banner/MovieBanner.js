@@ -1,15 +1,16 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { setLogLevel } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuth } from "../../context/AuthContext";
 
+const BASE_URL = "https://image.tmdb.org/t/p/w780";
+
 export default function MovieBanner({ movie }) {
     const { user } = useAuth();
     const router = useRouter();
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!user) {
@@ -22,21 +23,28 @@ export default function MovieBanner({ movie }) {
                 id: movie.id,
                 title: movie.title,
                 description: movie.tagline,
-                image: movie.backdrop_path,
+                image: movie.poster_path,
                 rating: movie.vote_average,
                 duration: movie.runtime,
                 createdBy: user.uid,
                 createdAt: new Date(),
             });
             // Navigate to the Playlist page
-            router.push("/playlist"); // Navigate to the Playlist page
+            router.reload();
         } catch (error) {
             console.error("Error adding movie:", error);
         }
     };
 
+    console.log('movie', movie)
+    console.log(`${BASE_URL}${movie.backdrop_path}`)
     return (
-        <div className="movie-details-banner position-relative">
+        <div
+            className="movie-details-banner position-relative"
+            style={{
+                backgroundImage: `url(${BASE_URL}${movie.backdrop_path})`
+            }}
+        >
             <div className="content container position-absolute bottom-0 start-50 translate-middle-x mb-60">
                 <div className="row justify-content-between">
                     <div className="col-xxl-5 col-xl-6 align-self-end  mb-xl-0 mb-4">

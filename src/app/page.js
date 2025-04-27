@@ -32,15 +32,10 @@ export default function Home() {
             setMovies([]);
         }
     };
-    //API route
-    // const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/movies`);
-    // const data = await res.json();
-    // const movies = data.results;
 
     const handleResults = (movies) => {
         console.log("TMDB Search Results:", movies);
         setMovies(movies);
-        // You could set these in state and render them below
     };
 
     const getRandomFive = (arr) => {
@@ -52,7 +47,6 @@ export default function Home() {
         slides: getRandomFive(movies),
     };
 
-    console.log("totalPages", totalPages);
     return (
         <>
             <HeaderOne data={sliderData} isHero={true} />

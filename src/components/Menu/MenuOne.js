@@ -47,15 +47,6 @@ export default function MenuOne() {
         router.push("/");
     };
 
-    const toggleSearchBox = (e) => {
-        e.stopPropagation();
-        setShowBox(!showBox);
-    };
-
-    const stopPropagation = (e) => {
-        e.stopPropagation();
-    };
-
     return (
         <div className="container nav-container position-absolute top-0 start-50 translate-middle-x lh-1">
             <div className="d-flex align-items-center justify-content-between pt-lg-0 pb-lg-0 pt-4 pb-4">

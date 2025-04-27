@@ -78,10 +78,6 @@ export default function Login() {
                   </svg>
                 </label>
                 <div class="check-btn">
-                  <label class="checkbox-wrap">
-                    <input type="checkbox" id="css" checked />
-                    <span>Remember me</span>
-                  </label>
                   <div class="btn-wrap mt-sm-4 pt-lg-3 mt-4">
                     <button
                       type="submit"
