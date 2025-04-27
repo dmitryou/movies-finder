@@ -26,18 +26,6 @@ export default function Register() {
               <p class="mb-4 pb-2">Welcome! Register in to your account</p>
               <form onSubmit={onSubmit}>
                 <div class="row">
-                  {/* <div class="col-md-6">
-                    <label class="single-input-field style-border">
-                      <span>First Name*</span>
-                      <input type="text" placeholder="First Name" />
-                    </label>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="single-input-field style-border">
-                      <span>Last Name*</span>
-                      <input type="text" placeholder="Last Name" />
-                    </label>
-                  </div> */}
                   <div class="col-md-6">
                     <label class="single-input-field style-border">
                       <span>Email</span>

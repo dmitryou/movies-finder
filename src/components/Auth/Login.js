@@ -26,7 +26,7 @@ export default function Login() {
               <p class="mb-4 pb-2">Welcome! Log in to your account</p>
               <form onSubmit={onSubmit}>
                 <label class="single-input-field style-border">
-                  <span>Name or Email</span>
+                  <span>Email</span>
                   <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required/>
                 </label>
                 <label class="single-input-field style-border">

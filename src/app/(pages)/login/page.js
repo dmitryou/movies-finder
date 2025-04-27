@@ -26,7 +26,6 @@ export default function LoginPage() {
             <main class="main">
                 <Login />
             </main>
-
             <FooterOne />
         </>
     );

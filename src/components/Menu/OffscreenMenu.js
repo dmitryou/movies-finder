@@ -40,7 +40,7 @@ export default function OffscreenMenu() {
           <div className="menu_header d-flex align-items-center justify-content-between">
             <div className="logo">
               <Link className="main-logo me-lg-5 me-4" href={data.href}>
-                <Image src={data.logo} alt="img" />
+                <Image src={data.logo} alt="img" unoptimized />
               </Link>
             </div>
             <div
@@ -128,23 +128,6 @@ export default function OffscreenMenu() {
               )}
             </div>
           </div>
-        </div>
-        {/* <!-- social sharea area --> */}
-        <div className="social_share mt-auto">
-          {socials && socials.length > 0 && (
-            <ul className="social_share__list d-flex align-items-center m-0 p-0">
-              {socials.map((social, index) => (
-                <li
-                  key={index}
-                  className="facebook d-flex align-items-center justify-content-center"
-                >
-                  <Link href={social.href} className="social_share__list_link">
-                    {social.icon}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
       </div>
     </div>
