@@ -14,7 +14,6 @@ export default function MenuOne() {
     const { toggleMobileMenu } = useThemeContext();
     const { user } = useAuth();
     const router = useRouter();
-    console.log("MenuOne user", user);
     const [showBox, setShowBox] = useState(false);
     const pathName = usePathname();
     const routePath =

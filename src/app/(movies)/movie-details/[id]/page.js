@@ -1,24 +1,41 @@
-'use client'
+"use client";
+import { useState, useEffect } from "react";
 import FooterOne from "@/components/Footer/FooterOne";
 import HeaderThree from "@/components/Header/HeaderThree";
 import MovieCasting from "@/components/Movie/MovieCasting";
 
-// const TMDB_API_KEY = process.env.TMDB_API_KEY; // or NEXT_PUBLIC_TMDB_KEY
 const TMDB_API_KEY = "9c5abf0e8c038652db89b7534ed902b4";
 
-export default async function MovieDetails({ params }) {
+export default function MovieDetails({ params }) {
     const { id } = params;
+    const [movie, setMovie] = useState({});
+    const [casting, setCasting] = useState({});
 
-    const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${TMDB_API_KEY}&language=en-US`
-    );
-    const movie = await res.json();
-    console.log("movie",movie)
+    useEffect(() => {
+        fetchMovieAndCasting();
+    }, []);
+
+    const fetchMovieAndCasting = async () => {
+        try {
+            const res = await fetch(
+                `https://api.themoviedb.org/3/movie/${id}?api_key=${TMDB_API_KEY}&language=en-US`
+            );
+            const movie = await res.json();
+            const resCast = await fetch(
+                `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${TMDB_API_KEY}`
+            );
+            const casting = await resCast.json();
+            setMovie(movie);
+            setCasting(casting);
+        } catch (err) {
+            console.error("Default TMDB fetch failed:", err);
+        }
+    };
     return (
         <>
-            <HeaderThree movie={movie}/>
+            <HeaderThree movie={movie} />
             <main className="main">
-                <MovieCasting movie={movie}/>
+                <MovieCasting movie={movie} casting={casting} />
             </main>
 
             <FooterOne />
