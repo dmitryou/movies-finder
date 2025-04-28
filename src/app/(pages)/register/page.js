@@ -14,16 +14,9 @@ export default function RegisterPage() {
         if (user) router.push("/playlist"); // redirect to playlist if already logged in
     }, [user, router]);
 
-    const breadcrumb = {
-        title: "My Account",
-        links: [
-            { name: "Home", href: "/" },
-            { name: "Register", href: "#" },
-        ],
-    };
     return (
         <>
-            <HeaderOne data={{ breadcrumb }} />
+            <HeaderOne />
             <main class="main">
                 <Register />
             </main>

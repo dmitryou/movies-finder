@@ -17,7 +17,7 @@ export default function Register() {
   };
 
   return (
-    <div class="registration-area my-80">
+    <div class="registration-area my-60">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-xl-10">
