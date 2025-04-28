@@ -1,5 +1,34 @@
 import logo from "@/../public/assets/images/logo.jpeg";
 
+const menuOneDataUser = {
+  logo: logo,
+  href: "/",
+  btnText: "Login",
+  registerText: "Register",
+  logoutText: "Logout",
+  menus: [
+    {
+      name: "Home",
+      href: "/",
+
+    },
+    {
+      name: "PLAYLIST",
+      href: "playlist",
+    },
+    {
+      name: "Account",
+      href: "#",
+      subMenus: [
+        {
+          name: "Logout",
+          href: "logout",
+        },
+      ],
+    },
+  ],
+};
+
 const menuOneData = {
   logo: logo,
   href: "/",
@@ -45,4 +74,4 @@ const menuTwoData = {
   ],
 };
 
-export { menuOneData, menuTwoData };
+export { menuOneData, menuOneDataUser, menuTwoData };

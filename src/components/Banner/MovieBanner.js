@@ -10,7 +10,7 @@ const BASE_URL = "https://image.tmdb.org/t/p/w780";
 export default function MovieBanner({ movie }) {
     const { user } = useAuth();
     const router = useRouter();
-
+    console.log("movie", movie);
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!user) {
@@ -22,7 +22,7 @@ export default function MovieBanner({ movie }) {
             await addDoc(collection(db, "movies"), {
                 id: movie.id,
                 title: movie.title,
-                description: movie.tagline,
+                description: movie.overview,
                 image: movie.poster_path,
                 rating: movie.vote_average,
                 duration: movie.runtime,
@@ -36,13 +36,13 @@ export default function MovieBanner({ movie }) {
         }
     };
 
-    console.log('movie', movie)
-    console.log(`${BASE_URL}${movie.backdrop_path}`)
+    console.log("movie", movie);
+    console.log(`${BASE_URL}${movie.backdrop_path}`);
     return (
         <div
             className="movie-details-banner position-relative"
             style={{
-                backgroundImage: `url(${BASE_URL}${movie.backdrop_path})`
+                backgroundImage: `url(${BASE_URL}${movie.backdrop_path})`,
             }}
         >
             <div className="content container position-absolute bottom-0 start-50 translate-middle-x mb-60">
@@ -51,6 +51,9 @@ export default function MovieBanner({ movie }) {
                         <h2 className="banner-title text-uppercase mb-2">
                             {movie.title}
                         </h2>
+                        <p className="banner-description pe-xl-5 me-xl-5">
+                        {movie.overview}
+                      </p>
                         <ul className="movie-info-list movie-production-info-list d-flex align-item-center justify-content-start gap-1 gap-lg-2 text-white">
                             <li className="movie-info-list--item style-two">
                                 <svg

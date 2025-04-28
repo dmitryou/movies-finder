@@ -6,7 +6,10 @@ import { useRouter } from "next/navigation";
 import { useThemeContext } from "@/context//ThemeContext";
 import { useAuth } from "../../context/AuthContext";
 import { handleLogout } from "../../firebase/auth";
-import { menuOneData as data } from "@/data/menu";
+import {
+    menuOneData as dataNoUser,
+    menuOneDataUser as dataWithUser,
+} from "@/data/menu";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -19,6 +22,7 @@ export default function MenuOne() {
     const routePath =
         pathName == "/" ? pathName : pathName.replace(/^\/+/g, "");
 
+    const data = user ? dataWithUser : dataNoUser;
     useEffect(() => {
         const closeSearch = () => {
             setShowBox(false);
@@ -57,11 +61,7 @@ export default function MenuOne() {
                             overflow: "hidden",
                         }}
                     >
-                        <Image
-                            src={data.logo}
-                            alt="img"
-                            unoptimized
-                        />
+                        <Image src={data.logo} alt="img" unoptimized />
                     </div>
                 </Link>
                 <nav className="navbar-nav m-auto d-lg-inline-block d-none">
@@ -145,8 +145,17 @@ export default function MenuOne() {
                                                             }`}
                                                         >
                                                             <Link
+                                                                onClick={
+                                                                    subMenu.href ===
+                                                                    "logout"
+                                                                        ? onLogout
+                                                                        : () => {}
+                                                                }
                                                                 href={
-                                                                    subMenu.href
+                                                                    subMenu.href ===
+                                                                    "logout"
+                                                                        ? "#"
+                                                                        : subMenu.href
                                                                 }
                                                                 className={`sub-menu--link ${
                                                                     routePath ==
@@ -156,7 +165,7 @@ export default function MenuOne() {
                                                                 }`}
                                                             >
                                                                 {subMenu.name}
-                                                            </Link>
+                                                            </Link>{" "}
                                                             {subMenu.subMenus &&
                                                                 subMenu.subMenus
                                                                     .length >
@@ -204,33 +213,6 @@ export default function MenuOne() {
                     )}
                 </nav>
                 <div className="nav-right-part nav-right-part-desktop d-inline-flex align-item-center ps-md-5 ps-3">
-                    <div className="nav-right-part nav-right-part-desktop d-inline-flex align-item-center ps-md-5 ps-3">
-                        {user ? (
-                            <Link
-                                href="#"
-                                className="hl-btn btn-base text-uppercase d-xl-inline-block d-none"
-                            >
-                                <span onClick={onLogout}>
-                                    {data.logoutText}
-                                </span>
-                            </Link>
-                        ) : (
-                            <>
-                                <Link
-                                    href="login"
-                                    className="hl-btn btn-base text-uppercase d-xl-inline-block d-none"
-                                >
-                                    <span>{data.btnText}</span>
-                                </Link>
-                                <Link
-                                    href="register"
-                                    className="hl-btn btn-base text-uppercase d-xl-inline-block d-none"
-                                >
-                                    <span>{data.registerText}</span>
-                                </Link>
-                            </>
-                        )}
-                    </div>
                     <button
                         id="navigation-button"
                         className="menu-button menu menu_btn d-lg-none border-0 bg-transparent"
