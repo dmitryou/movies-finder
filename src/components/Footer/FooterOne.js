@@ -22,7 +22,7 @@ export default function FooterOne() {
                         }}
                     >
                         <span>Created by dmitryou</span>
-                        <ul
+                        {/* <ul
                             className="social-media mt-3"
                             style={{ display: "flex", gap: "10px" }}
                         >
@@ -46,7 +46,7 @@ export default function FooterOne() {
                                     </svg>
                                 </Link>
                             </li>
-                        </ul>
+                        </ul> */}
                     </div>
                 </div>
             </div>
