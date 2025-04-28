@@ -12,12 +12,15 @@ import {
 } from "@/data/menu";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import ScreenLoader from "../ScreenLoader/ScreenLoader";
 
 export default function MenuOne() {
     const { toggleMobileMenu } = useThemeContext();
     const { user } = useAuth();
     const router = useRouter();
     const [showBox, setShowBox] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
     const pathName = usePathname();
     const routePath =
         pathName == "/" ? pathName : pathName.replace(/^\/+/g, "");
@@ -47,9 +50,15 @@ export default function MenuOne() {
 
     const onLogout = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         await handleLogout();
+        setIsLoading(false);
         router.push("/");
     };
+
+    if (isLoading) {
+      return <ScreenLoader />;
+    }
 
     return (
         <div className="container nav-container position-absolute top-0 start-50 translate-middle-x lh-1">

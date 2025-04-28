@@ -10,7 +10,7 @@ import MovieListCard from "../Card/MovieListCard";
 export default function PlaylistOne() {
     const [movies, setMovies] = useState([]);
     const auth = getAuth();
-  const user = auth.currentUser;
+    const user = auth.currentUser;
 
     useEffect(() => {
         if (user) {

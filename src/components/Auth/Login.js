@@ -1,20 +1,29 @@
 "use client"
 import { useState } from 'react';
 import { handleLogin } from '../../firebase/auth';
+import ScreenLoader from "../ScreenLoader/ScreenLoader";
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       const user = await handleLogin(email, password);
       console.log('User logged in:', user);
+      setIsLoading(false);
     } catch (error) {
       console.error('Login error:', error.message);
+      setIsLoading(false);
     }
   };
+
+  if (isLoading) {
+    return <ScreenLoader />;
+  }
 
   return (
     <div class="registration-area my-60">

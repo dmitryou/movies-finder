@@ -1,16 +1,19 @@
 "use client";
 import Link from "next/link";
+import { useState } from 'react';
 import { useRouter } from "next/navigation";
 import { db } from "../../firebase/config";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuth } from "../../context/AuthContext";
+import ScreenLoader from "../ScreenLoader/ScreenLoader";
 
 const BASE_URL = "https://image.tmdb.org/t/p/w780";
 
 export default function MovieBanner({ movie }) {
     const { user } = useAuth();
     const router = useRouter();
-    console.log("movie", movie);
+    const [isLoading, setIsLoading] = useState(false);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!user) {
@@ -19,6 +22,8 @@ export default function MovieBanner({ movie }) {
         }
 
         try {
+            setIsLoading(true);
+
             await addDoc(collection(db, "movies"), {
                 id: movie.id,
                 title: movie.title,
@@ -30,14 +35,18 @@ export default function MovieBanner({ movie }) {
                 createdAt: new Date(),
             });
             // Navigate to the Playlist page
+            setIsLoading(false);
+
             router.reload();
         } catch (error) {
             console.error("Error adding movie:", error);
+            setIsLoading(false);
         }
     };
 
-    console.log("movie", movie);
-    console.log(`${BASE_URL}${movie.backdrop_path}`);
+    if (isLoading) {
+        return <ScreenLoader />;
+    }
     return (
         <div
             className="movie-details-banner position-relative"
@@ -52,8 +61,8 @@ export default function MovieBanner({ movie }) {
                             {movie.title}
                         </h2>
                         <p className="banner-description pe-xl-5 me-xl-5">
-                        {movie.overview}
-                      </p>
+                            {movie.overview}
+                        </p>
                         <ul className="movie-info-list movie-production-info-list d-flex align-item-center justify-content-start gap-1 gap-lg-2 text-white">
                             <li className="movie-info-list--item style-two">
                                 <svg

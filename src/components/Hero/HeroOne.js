@@ -1,5 +1,5 @@
 "use client";
-
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
     Navigation,
@@ -15,6 +15,7 @@ import Link from "next/link";
 import { db } from "../../firebase/config";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuth } from "../../context/AuthContext";
+import ScreenLoader from "../ScreenLoader/ScreenLoader";
 
 const VideoTwo = dynamic(() => import("@/components/Video/VideoTwo"), {
     ssr: false,
@@ -25,7 +26,7 @@ const BASE_URL = "https://image.tmdb.org/t/p/w780";
 export default function HeroOne({ data }) {
     const { user } = useAuth();
     const router = useRouter();
-    console.log("data", data);
+    const [isLoading, setIsLoading] = useState(false);
     const swiperHeroOptions = {
         speed: 1500,
         slidesPerView: "auto",
@@ -68,14 +69,14 @@ export default function HeroOne({ data }) {
     };
 
     const handleSubmit = async (slide) => {
-        console.log("slide", slide);
-
         if (!user) {
             alert("You must be logged in to add a movie.");
             return;
         }
 
         try {
+            setIsLoading(true);
+
             await addDoc(collection(db, "movies"), {
                 id: slide.id,
                 title: slide.title,
@@ -86,12 +87,19 @@ export default function HeroOne({ data }) {
                 createdBy: user.uid,
                 createdAt: new Date(),
             });
+            setIsLoading(false);
+
             // Navigate to the Playlist page
             router.push("/playlist"); // Navigate to the Playlist page
         } catch (error) {
             console.error("Error adding movie:", error);
+            setIsLoading(false);
         }
     };
+
+    if (isLoading) {
+        return <ScreenLoader />;
+    }
 
     return (
         <>
