@@ -6,6 +6,8 @@ First, run the development server:
 
 ## Screenshots
 
+![Screenshot](public/screenshots/3.jpeg)
+![Screenshot](public/screenshots/2.jpeg)
 ![Screenshot](public/screenshots/1.jpeg)
 
 
