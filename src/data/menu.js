@@ -13,7 +13,7 @@ const menuOneDataUser = {
 
     },
     {
-      name: "PLAYLIST",
+      name: "MY WATCHLIST",
       href: "playlist",
     },
     {
@@ -40,10 +40,6 @@ const menuOneData = {
       name: "Home",
       href: "/",
 
-    },
-    {
-      name: "PLAYLIST",
-      href: "playlist",
     },
     {
       name: "Account",
