@@ -6,7 +6,7 @@ First, run the development server:
 
 ## Screenshots
 
-![Screenshot](/screenshots/1.jpeg)
+![Screenshot](public/screenshots/1.jpeg)
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
